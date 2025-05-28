@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "Simple Site Blocker",
+  "version": "1.0",
+  "description": "Simple blocker that reads from block.txt file",
+  "permissions": [
+    "storage",
+    "tabs",
+    "webNavigation"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_start",
+      "all_frames": false
+    }
+  ]
+}
